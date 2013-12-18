@@ -1,0 +1,7 @@
+article:
+    fields:
+        title: VARCHAR(50)
+        text: TEXT
+category:
+    fields:
+        title: VARCHAR(50)
