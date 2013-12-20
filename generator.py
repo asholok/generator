@@ -1,5 +1,5 @@
 import yaml
-
+# This utility creats tables to postgresql
 def make_sql_request(table_name, fields):
 	id_field = '	{}_id serial primary key'.format(table_name)
 	sql = ['CREATE TABLE "{}" ( \n'.format(table_name)]
@@ -15,7 +15,7 @@ def make_sql_request(table_name, fields):
 
 def make_string():	
 	sql_string = []
-	with open("tables.yaml", 'r') as f:
+	with open("tables.yaml", 'r') as f: # Plase and name of yaml file
 		schema = yaml.load(f.read())
 	for table, structure in schema.items():
 		sql_string.append(make_sql_request(table, structure["fields"]))
@@ -23,7 +23,7 @@ def make_string():
 	with open("psql.sql", 'w') as d:
 		d.write(statement)
 	
-	return statement
+	return statement # or return SQL statements in string container
 
 if __name__ == '__main__':
 	print(make_string())
