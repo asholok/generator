@@ -2,6 +2,10 @@ article:
     fields:
         title: VARCHAR(50)
         text: TEXT
+    relations:
+        category: one
 category:
     fields:
         title: VARCHAR(50)
+    relations:
+        article: many
